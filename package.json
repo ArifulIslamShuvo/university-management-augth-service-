@@ -1,0 +1,19 @@
+{
+  "name": "university-management-auth-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/service.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ariful Islam",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "dotenv": "^16.1.2",
+    "epress": "^0.0.1-security",
+    "mongoose": "^7.2.2"
+  }
+}
