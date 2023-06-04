@@ -9,6 +9,7 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 //Application routes
+
 app.use('/api/v1/users/', userRouter)
 
 //Testing
