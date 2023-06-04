@@ -1,15 +1,58 @@
-import winston = require('winston')
+import path from 'path'
+import { createLogger, format, transports } from 'winston'
+const { combine, timestamp, label, printf, prettyPrint } = format
+import DailyRotateFile from 'winston-daily-rotate-file'
 
-export const logger = winston.createLogger({
+// Create a custom log message format
+const myFormat = printf(({ level, message, label, timestamp }) => {
+  const date = new Date(timestamp)
+  const hour = date.getHours()
+  const minutes = date.getMinutes()
+  return `${date.toDateString()} ${hour}:${minutes} [${label}] ${level}: ${message}`
+})
+
+// Create a logger and specify the format
+const logger = createLogger({
   level: 'info',
-  format: winston.format.json(),
+  format: combine(label({ label: 'PH' }), timestamp(), myFormat, prettyPrint()),
   defaultMeta: { service: 'user-service' },
   transports: [
-    //
-    // - Write all logs with importance level of `error` or less to `error.log`
-    // - Write all logs with importance level of `info` or less to `combined.log`
-    //
-    new winston.transports.File({ filename: 'error.log', level: 'error' }),
-    new winston.transports.File({ filename: 'combined.log', level: 'error' }),
+    new transports.Console(),
+    new DailyRotateFile({
+      filename: path.join(
+        process.cwd(),
+        'logs',
+        'winston',
+        'successes',
+        'PHu-%DATE%-success.log'
+      ),
+      datePattern: 'YYYY-DD-MM-HH',
+      zippedArchive: true,
+      maxSize: '20m',
+      maxFiles: '14d',
+    }),
   ],
 })
+
+const errorlogger = createLogger({
+  level: 'info',
+  format: combine(label({ label: 'PH' }), timestamp(), myFormat, prettyPrint()),
+  defaultMeta: { service: 'user-service' },
+  transports: [
+    new transports.Console(),
+    new DailyRotateFile({
+      filename: path.join(
+        process.cwd(),
+        'logs',
+        'winston',
+        'errors',
+        'PHu-%DATE%-error.log'
+      ),
+      datePattern: 'YYYY-MM-DD-HH',
+      zippedArchive: true,
+      maxSize: '20m',
+      maxFiles: '14d',
+    }),
+  ],
+})
+export { logger, errorlogger }
