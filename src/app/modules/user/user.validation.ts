@@ -1,14 +1,15 @@
-import { z } from 'zod'
+import { z } from 'zod';
 
 const createUserZodSchema = z.object({
-  bidy: z.object({
+  body: z.object({
     role: z.string({
-      required_error: 'roal is required',
+      required_error: 'role is required',
     }),
+    password: z.string().optional(),
   }),
-})
+});
 export const UserValidation = {
   createUserZodSchema,
-}
+};
 
 //   await createUserZodSchema.parseAsync(req)

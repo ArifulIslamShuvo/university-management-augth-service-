@@ -1,12 +1,14 @@
 /* eslint-disable no-console */
 /* eslint-disable no-unused-expressions */
-import { NextFunction, Request, Response } from 'express-serve-static-core'
-import config from '../../config'
-import { IgenericErrorMassage } from '../../errors/interfaces/error'
-import handleValidationError from '../../errors/handleValidationError'
-import ApiError from '../../errors/ApiError'
-import { ErrorRequestHandler } from 'express'
-import { errorlogger } from '../../shared/logger'
+import { NextFunction, Request, Response } from 'express-serve-static-core';
+import config from '../../config';
+import { IGenericErrorMessage } from '../../interfaces/error';
+import handleValidationError from '../../errors/handleValidationError';
+import ApiError from '../../errors/ApiError';
+import { ErrorRequestHandler } from 'express';
+import { errorlogger } from '../../shared/logger';
+import handleZodError from '../../errors/handleZodError';
+import { ZodError } from 'zod';
 
 const globalErrorHandler: ErrorRequestHandler = (
   error: any,
@@ -16,20 +18,25 @@ const globalErrorHandler: ErrorRequestHandler = (
 ) => {
   config.env === 'development'
     ? console.log('globalErrorhandler', error)
-    : errorlogger.error('globalErrorhandler', error)
+    : errorlogger.error('globalErrorhandler', error);
 
-  let statusCode = 500
-  let message = 'Something went wrong !'
-  let errorMessages: IgenericErrorMassage[] = []
+  let statusCode = 500;
+  let message = 'Something went wrong !';
+  let errorMessages: IGenericErrorMessage[] = [];
 
   if (error?.name === 'ValidatorError') {
-    const simplifideError = handleValidationError(error)
-    statusCode = simplifideError.statusCode
-    message = simplifideError.message
-    errorMessages = simplifideError.errorMessages
+    const simplifideError = handleValidationError(error);
+    statusCode = simplifideError.statusCode;
+    message = simplifideError.message;
+    errorMessages = simplifideError.errorMessages;
+  } else if (error instanceof ZodError) {
+    const simplifideError = handleZodError(error);
+    statusCode = simplifideError.statusCode;
+    message = simplifideError.message;
+    errorMessages = simplifideError.errorMessages;
   } else if (error instanceof ApiError) {
-    statusCode = error?.statusCode
-    message = error?.message
+    statusCode = error?.statusCode;
+    message = error?.message;
     errorMessages = error?.message
       ? [
           {
@@ -37,9 +44,9 @@ const globalErrorHandler: ErrorRequestHandler = (
             message: error?.message,
           },
         ]
-      : []
+      : [];
   } else if (error instanceof Error) {
-    message = error?.message
+    message = error?.message;
     errorMessages = error?.message
       ? [
           {
@@ -47,7 +54,7 @@ const globalErrorHandler: ErrorRequestHandler = (
             message: error?.message,
           },
         ]
-      : []
+      : [];
   }
 
   res.status(statusCode).json({
@@ -55,11 +62,11 @@ const globalErrorHandler: ErrorRequestHandler = (
     message,
     errorMessages,
     stack: config.env !== 'production' ? error?.stack : undefined,
-  })
+  });
 
-  next()
-}
+  next();
+};
 
-export default globalErrorHandler
+export default globalErrorHandler;
 // path
 // message

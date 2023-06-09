@@ -1,0 +1,13 @@
+{
+  service: 'user-service',
+  errno: undefined,
+  code: 'ETIMEOUT',
+  syscall: 'querySrv',
+  hostname: '_mongodb._tcp.cluster0.ucy0qh8.mongodb.net',
+  level: 'error',
+  message: 'Failled to connect databse querySrv ETIMEOUT _mongodb._tcp.cluster0.ucy0qh8.mongodb.net',
+  stack: 'Error: querySrv ETIMEOUT _mongodb._tcp.cluster0.ucy0qh8.mongodb.net\n' +
+    '    at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:251:17)',
+  label: 'PH',
+  timestamp: '2023-06-07T20:05:02.620Z'
+}
