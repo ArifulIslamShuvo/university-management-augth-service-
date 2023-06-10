@@ -40,7 +40,6 @@ const academicSemesterSchema = new Schema<IAcademicSemester>(
   }
 );
 
-// Hendling same year and same semester issue
 //Data check -? smae year && same semester
 
 academicSemesterSchema.pre('save', async function (next) {
