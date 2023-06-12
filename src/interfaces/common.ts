@@ -1,7 +1,16 @@
-import { IgenericErrorMassage } from './error';
+import { IGenericErrorMessage } from './error';
+
+export type IGemericResponse<T> = {
+  meta: {
+    page: number;
+    limit: number;
+    total: number;
+  };
+  data: T;
+};
 
 export type IGenericErrorResponse = {
   statusCode: number;
   message: string;
-  errorMessages: IgenericErrorMassage[];
+  errorMessages: IGenericErrorMessage[];
 };
