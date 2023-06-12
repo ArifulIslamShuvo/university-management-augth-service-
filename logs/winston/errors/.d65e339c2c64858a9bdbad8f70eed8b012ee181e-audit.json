@@ -6,11 +6,6 @@
     "auditLog": "C:\\Next Level Development\\university-management-auth-service\\logs\\winston\\errors\\.d65e339c2c64858a9bdbad8f70eed8b012ee181e-audit.json",
     "files": [
         {
-            "date": 1686171800590,
-            "name": "C:\\Next Level Development\\university-management-auth-service\\logs\\winston\\errors\\PHu-2023-06-08-03-error.log",
-            "hash": "fc40b9afd94e4a4e2314c89fe92eedd00ab5c77dbb7efbc80dbfe15f1d18dc18"
-        },
-        {
             "date": 1686234851959,
             "name": "C:\\Next Level Development\\university-management-auth-service\\logs\\winston\\errors\\PHu-2023-06-08-20-error.log",
             "hash": "4cc8ac94bb94eaedb9f74a9fb93bddd5e961620a681ea1f0643d0eb123018ecc"
@@ -129,6 +124,16 @@
             "date": 1686603713605,
             "name": "C:\\Next Level Development\\university-management-auth-service\\logs\\winston\\errors\\PHu-2023-06-13-03-error.log",
             "hash": "e84e61dad61bfd27fc9c57cc2c37deab46bb4a01c03042a66dc3f9ca20841a66"
+        },
+        {
+            "date": 1686607782990,
+            "name": "C:\\Next Level Development\\university-management-auth-service\\logs\\winston\\errors\\PHu-2023-06-13-04-error.log",
+            "hash": "4694a60f56f94acc1c4bc89cf4ebc589a26281bc0d1b0f3d13ac6a2b12ad94c3"
+        },
+        {
+            "date": 1686611437167,
+            "name": "C:\\Next Level Development\\university-management-auth-service\\logs\\winston\\errors\\PHu-2023-06-13-05-error.log",
+            "hash": "556c6a37c9a909713e0831777ba2641228c256685a9dfba5bc246e799fdd9519"
         }
     ],
     "hashType": "sha256"
