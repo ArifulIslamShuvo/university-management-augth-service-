@@ -32,12 +32,12 @@ const createSemester = catchAsync(
 
 const getAllSemesters = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
+    const filters = pick(req.query, ['searchTerm']);
+
     const paginationOptions = pick(req.query, paginationFields);
 
-    /* eslint-disable no-console */
-    console.log(paginationOptions);
-
     const result = await AcademicSemesterService.getAllsemesters(
+      filters,
       paginationOptions
     );
 
