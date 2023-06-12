@@ -22,8 +22,8 @@ app.use('/api/v1', routers);
 
 //global error handler
 app.use(globalErrorHandler);
-//Handle not fot route
 
+//Handle not fot route
 app.use((req: Request, res: Response, next: NextFunction) => {
   res.status(httpStatus.NOT_FOUND).json({
     success: false,

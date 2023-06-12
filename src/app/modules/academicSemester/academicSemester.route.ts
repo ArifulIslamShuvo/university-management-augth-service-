@@ -3,14 +3,15 @@ import express from 'express';
 // import { UserValidation } from './user.validation';
 import validateRequest from '../../middlewares/validateRequset';
 import { AcademicSemesterValidation } from './academicSemester.validation';
-import { AcademicSemestercontroller } from './academicSemester.controller';
+import { AcademicSemesterController } from './academicSemester.controller';
 
 const router = express.Router();
 
 router.post(
   '/create-semester',
   validateRequest(AcademicSemesterValidation.createAcademicSemesterZodSchema),
-  AcademicSemestercontroller.createAcademecSemester
+  AcademicSemesterController.createSemester
 );
+router.get('/', AcademicSemesterController.getAllSemesters);
 
 export const AcademicSemesterRouts = router;
