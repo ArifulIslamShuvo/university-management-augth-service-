@@ -91,6 +91,13 @@ const updateSemester = async (
   id: string,
   payload: Partial<IAcademicSemester>
 ): Promise<IAcademicSemester | null> => {
+  if (
+    payload.title &&
+    payload.code &&
+    academeicSemesterTitleCodeMapper[payload.title] !== payload.code
+  ) {
+    throw new ApiError(status.BAD_REQUEST, 'Invalid Semester Code !');
+  }
   const result = await AcademicSemester.findOneAndUpdate({ _id: id }, payload, {
     new: true,
   });
@@ -103,3 +110,4 @@ export const AcademicSemesterService = {
   getSingleSemesters,
   updateSemester,
 };
+// ensure 2. Service Level: Update --> Mapping title : code ZodEffects
