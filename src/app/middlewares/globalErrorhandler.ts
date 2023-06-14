@@ -12,7 +12,7 @@ import { ZodError } from 'zod';
 import handleCastError from '../../errors/handleCastError';
 
 const globalErrorHandler: ErrorRequestHandler = (
-  error: any,
+  error,
   req: Request,
   res: Response,
   next: NextFunction
@@ -69,7 +69,6 @@ const globalErrorHandler: ErrorRequestHandler = (
     errorMessages,
     stack: config.env !== 'production' ? error?.stack : undefined,
   });
-
   next();
 };
 

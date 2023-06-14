@@ -103,11 +103,18 @@ const updateSemester = async (
   });
   return result;
 };
+const deleteSemester = async (
+  id: string
+): Promise<IAcademicSemester | null> => {
+  const result = await AcademicSemester.findByIdAndDelete(id);
+  return result;
+};
 
 export const AcademicSemesterService = {
   createSemester,
   getAllsemesters,
   getSingleSemesters,
   updateSemester,
+  deleteSemester,
 };
 // ensure 2. Service Level: Update --> Mapping title : code ZodEffects
