@@ -15,7 +15,7 @@ const createFaculty = catchAsync(async (req: Request, res: Response) => {
     academicFacultyData
   );
 
-  sendResponse(res, {
+  sendResponse<IAcademicFaculty>(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: 'Faculty created successfully!',
@@ -31,7 +31,7 @@ const getAllFaculties = catchAsync(async (req: Request, res: Response) => {
     paginationOptions
   );
 
-  sendResponse(res, {
+  sendResponse<IAcademicFaculty[]>(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: 'Academic Faculties retrieved successfully!',
