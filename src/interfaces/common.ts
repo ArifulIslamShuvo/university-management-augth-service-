@@ -1,6 +1,6 @@
 import { IGenericErrorMessage } from './error';
 
-export type IGemericResponse<T> = {
+export type IGenericResponse<T> = {
   meta: {
     page: number;
     limit: number;

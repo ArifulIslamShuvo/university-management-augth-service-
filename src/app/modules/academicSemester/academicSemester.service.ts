@@ -10,7 +10,7 @@ import {
 } from './academicSemester.interface';
 import { AcademicSemester } from './academicSemester.model';
 import status from 'http-status';
-import { IGemericResponse } from '../../../interfaces/common';
+import { IGenericResponse } from '../../../interfaces/common';
 import { paginationHelpers } from '../../../helpers/paginationHelper';
 import { SortOrder } from 'mongoose';
 
@@ -29,7 +29,7 @@ const createSemester = async (
 const getAllsemesters = async (
   filters: IAcademicSemesterFilters,
   paginationOptions: IPaginationOptions
-): Promise<IGemericResponse<IAcademicSemester[]>> => {
+): Promise<IGenericResponse<IAcademicSemester[]>> => {
   const { searchTerm, ...filterData } = filters;
 
   const andConditions = [];
