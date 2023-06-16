@@ -1,10 +1,10 @@
 import httpStatus from 'http-status';
-import catchAsync from '../../../shared/catAsync';
+import catchAsync from '../../../shared/catchAsync';
 import sendResponse from '../../../shared/sendResponse';
 import { IAcademicDepartment } from './academicDepartment.interfaces';
 import { Request, Response } from 'express';
 import { AcademicDepartmentService } from './academicDepartment.service';
-import pick from '../../../shared/pic';
+import pick from '../../../shared/pick';
 import { academicDepartmentFilterableFields } from './academicDepartment.constants';
 import { paginationFields } from '../../../constants/pagination';
 

@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
 import { AcademicSemesterService } from './academicSemester.service';
-import catchAsync from '../../../shared/catAsync';
+import catchAsync from '../../../shared/catchAsync';
 import httpStatus from 'http-status';
 import sendResponse from '../../../shared/sendResponse';
-import pick from '../../../shared/pic';
+import pick from '../../../shared/pick';
 import { paginationFields } from '../../../constants/pagination';
 import { IAcademicSemester } from './academicSemester.interface';
 import { academicSemesterFilterbleFields } from './academicSemester.constant';

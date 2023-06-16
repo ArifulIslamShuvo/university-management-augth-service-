@@ -3,7 +3,7 @@ import sendResponse from '../../../shared/sendResponse';
 import httpStatus from 'http-status';
 import { IUser } from './user.interface';
 import { UserService } from './user.service';
-import catchAsync from '../../../shared/catAsync';
+import catchAsync from '../../../shared/catchAsync';
 
 const createStudent: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
