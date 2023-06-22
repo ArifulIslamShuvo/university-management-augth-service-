@@ -6,14 +6,13 @@ import pick from '../../../shared/pick';
 import { facultyFilterableFields } from './faculty.constant';
 import { paginationFields } from '../../../constants/pagination';
 import { Request, Response } from 'express';
-import { AcademicFacultyService } from '../academicFaculty/academicFaculty.service';
 import { FacultyService } from './faculty.service';
 
 const getAllFaculties = catchAsync(async (req: Request, res: Response) => {
   const filters = pick(req.query, facultyFilterableFields);
   const paginationOptions = pick(req.query, paginationFields);
 
-  const result = await AcademicFacultyService.getAllFaculties(
+  const result = await FacultyService.getAllFaculties(
     filters,
     paginationOptions
   );
