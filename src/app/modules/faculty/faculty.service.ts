@@ -61,6 +61,14 @@ const getAllFaculties = async (
     data: result,
   };
 };
+const getSingleFaculty = async (id: string): Promise<IFaculty | null> => {
+  const result = await Faculty.findOne({ id })
+    .populate('academicDepartment')
+    .populate('academicFaculty');
+
+  return result;
+};
 export const FacultyService = {
   getAllFaculties,
+  getSingleFaculty,
 };

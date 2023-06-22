@@ -7,6 +7,7 @@ import { facultyFilterableFields } from './faculty.constant';
 import { paginationFields } from '../../../constants/pagination';
 import { Request, Response } from 'express';
 import { AcademicFacultyService } from '../academicFaculty/academicFaculty.service';
+import { FacultyService } from './faculty.service';
 
 const getAllFaculties = catchAsync(async (req: Request, res: Response) => {
   const filters = pick(req.query, facultyFilterableFields);
@@ -25,6 +26,18 @@ const getAllFaculties = catchAsync(async (req: Request, res: Response) => {
     data: result.data,
   });
 });
+const getSingleFaculty = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const result = await FacultyService.getSingleFaculty(id);
+
+  sendResponse<IFaculty>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'faculty retrieved successfully !',
+    data: result,
+  });
+});
 export const FacultyController = {
   getAllFaculties,
+  getSingleFaculty,
 };
