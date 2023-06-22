@@ -6,6 +6,8 @@ import { IAcademicFacultyFilters } from '../academicFaculty/academicFaculty.inte
 import { facultySearchableFields } from './faculty.constant';
 import { IFaculty } from './faculty.interface';
 import { Faculty } from './faculty.model';
+import ApiError from '../../../errors/ApiError';
+import httpStatus from 'http-status';
 
 const getAllFaculties = async (
   filters: IAcademicFacultyFilters,
@@ -68,7 +70,33 @@ const getSingleFaculty = async (id: string): Promise<IFaculty | null> => {
 
   return result;
 };
+const updateFaculty = async (
+  id: string,
+  payload: Partial<IFaculty>
+): Promise<IFaculty | null> => {
+  const isExist = await Faculty.findOne({ id });
+
+  if (!isExist) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'Faculty not found !');
+  }
+
+  const { name, ...FacultyData } = payload;
+  const updatedFacultyData: Partial<IFaculty> = { ...FacultyData };
+
+  if (name && Object.keys(name).length > 0) {
+    Object.keys(name).forEach(key => {
+      const nameKey = `name.${key}` as keyof Partial<IFaculty>;
+      (updatedFacultyData as any)[nameKey] = name[key as keyof typeof name];
+    });
+  }
+
+  const result = await Faculty.findOneAndUpdate({ id }, updatedFacultyData, {
+    new: true,
+  });
+  return result;
+};
 export const FacultyService = {
   getAllFaculties,
   getSingleFaculty,
+  updateFaculty,
 };
