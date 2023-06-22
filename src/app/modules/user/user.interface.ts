@@ -6,7 +6,7 @@ export type IUser = {
   role: string;
   password: string;
   student?: Types.ObjectId | IStudent;
-  // faculty?: Types.ObjectId | IStudent;
+  faculty?: Types.ObjectId | IStudent;
   // admin?: Types.ObjectId | IStudent;
 };
 
