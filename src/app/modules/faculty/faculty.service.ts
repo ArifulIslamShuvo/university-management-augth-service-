@@ -76,7 +76,7 @@ const updateFaculty = async (
   id: string,
   payload: Partial<IFaculty>
 ): Promise<IFaculty | null> => {
-  const isExist = await Faculty.findOne({ _id: id });
+  const isExist = await Faculty.findOne({ id });
 
   if (!isExist) {
     throw new ApiError(httpStatus.NOT_FOUND, 'Faculty not found !');
