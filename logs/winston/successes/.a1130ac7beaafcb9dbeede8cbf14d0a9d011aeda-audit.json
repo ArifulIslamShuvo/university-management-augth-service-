@@ -69,6 +69,56 @@
             "date": 1687554036732,
             "name": "C:\\Next Level Development\\university-management-auth-service\\logs\\winston\\successes\\PHu-2023-24-06-03-success.log",
             "hash": "d0b1d43e6ebe54bb196e6330dea2683ed9136203b70a20349e1548769acc0782"
+        },
+        {
+            "date": 1687557926006,
+            "name": "C:\\Next Level Development\\university-management-auth-service\\logs\\winston\\successes\\PHu-2023-24-06-04-success.log",
+            "hash": "c73aeb22ee9e45ef9905e3bae66ace3405a188eed74b3097cfd8001019b7fb13"
+        },
+        {
+            "date": 1687564444208,
+            "name": "C:\\Next Level Development\\university-management-auth-service\\logs\\winston\\successes\\PHu-2023-24-06-05-success.log",
+            "hash": "c9e2e6610e2648722bee0c915b1e12de2df094588917dca727e2ac1c5cf9b71a"
+        },
+        {
+            "date": 1687566577731,
+            "name": "C:\\Next Level Development\\university-management-auth-service\\logs\\winston\\successes\\PHu-2023-24-06-06-success.log",
+            "hash": "dd791c78422fbbdf6725e685fcf0e6d02c6017063aa948c88f108652e18c8a3f"
+        },
+        {
+            "date": 1687568792840,
+            "name": "C:\\Next Level Development\\university-management-auth-service\\logs\\winston\\successes\\PHu-2023-24-06-07-success.log",
+            "hash": "ad80f709d1a5b4c7f53f40fd2ba69cb429d59a090969f7be15575711fb172e3a"
+        },
+        {
+            "date": 1687572033795,
+            "name": "C:\\Next Level Development\\university-management-auth-service\\logs\\winston\\successes\\PHu-2023-24-06-08-success.log",
+            "hash": "2f97b3e0fe89b6ebf86060cc047db4db98e2facd0ed3e3f0589a4e87ad934d6b"
+        },
+        {
+            "date": 1687620997266,
+            "name": "C:\\Next Level Development\\university-management-auth-service\\logs\\winston\\successes\\PHu-2023-24-06-21-success.log",
+            "hash": "e2881e098f81dd77d35f5c42544c9fd5768257a045f215d064100cf8169abde2"
+        },
+        {
+            "date": 1687633126562,
+            "name": "C:\\Next Level Development\\university-management-auth-service\\logs\\winston\\successes\\PHu-2023-25-06-00-success.log",
+            "hash": "5b43a1df1d1c1ba99bf4f73961f57083d63120afafccb8ff50f3ff3028b4b570"
+        },
+        {
+            "date": 1687633304865,
+            "name": "C:\\Next Level Development\\university-management-auth-service\\logs\\winston\\successes\\PHu-2023-25-06-01-success.log",
+            "hash": "3d4a9b0c9af1c07dd349878b34678061d72051d758a24b23b859dac7ba8331c1"
+        },
+        {
+            "date": 1687643063575,
+            "name": "C:\\Next Level Development\\university-management-auth-service\\logs\\winston\\successes\\PHu-2023-25-06-03-success.log",
+            "hash": "408ce8f1d2b5aa6d939ebb20445d84afba411a88adaedc99a02483e70bba9e54"
+        },
+        {
+            "date": 1687644144667,
+            "name": "C:\\Next Level Development\\university-management-auth-service\\logs\\winston\\successes\\PHu-2023-25-06-04-success.log",
+            "hash": "af7faf297bd18a8c7c97c4af39d17cd19a6dad80cdd28c20ab6a8756c8d80710"
         }
     ],
     "hashType": "sha256"

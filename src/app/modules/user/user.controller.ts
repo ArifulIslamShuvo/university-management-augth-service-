@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { Request, RequestHandler, Response } from 'express';
 import sendResponse from '../../../shared/sendResponse';
 import httpStatus from 'http-status';
