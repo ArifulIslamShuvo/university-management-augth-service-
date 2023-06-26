@@ -9,9 +9,10 @@ import { ErrorRequestHandler } from 'express';
 import { errorlogger } from '../../shared/logger';
 import handleZodError from '../../errors/handleZodError';
 import { ZodError } from 'zod';
+import handleCastError from '../../errors/handleCastError';
 
 const globalErrorHandler: ErrorRequestHandler = (
-  error: any,
+  error,
   req: Request,
   res: Response,
   next: NextFunction
@@ -31,6 +32,11 @@ const globalErrorHandler: ErrorRequestHandler = (
     errorMessages = simplifideError.errorMessages;
   } else if (error instanceof ZodError) {
     const simplifideError = handleZodError(error);
+    statusCode = simplifideError.statusCode;
+    message = simplifideError.message;
+    errorMessages = simplifideError.errorMessages;
+  } else if (error?.name === 'CastError') {
+    const simplifideError = handleCastError(error);
     statusCode = simplifideError.statusCode;
     message = simplifideError.message;
     errorMessages = simplifideError.errorMessages;
@@ -63,7 +69,6 @@ const globalErrorHandler: ErrorRequestHandler = (
     errorMessages,
     stack: config.env !== 'production' ? error?.stack : undefined,
   });
-
   next();
 };
 

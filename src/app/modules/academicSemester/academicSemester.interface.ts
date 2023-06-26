@@ -18,7 +18,7 @@ export type IAcademicSemesterCodes = '01' | '02' | '03';
 export type IAcademicSemester = {
   meta: { page: number; limit: number; total: number };
   title: IAcademicSemesterTitles;
-  year: number;
+  year: string;
   code: IAcademicSemesterCodes;
   startMonth: IAcademicSemesterMonths;
   endMonth?: IAcademicSemesterMonths;
@@ -26,3 +26,7 @@ export type IAcademicSemester = {
 
 // Create a new Model type that knows about IUserMethods...
 export type AcademicSemesterModel = Model<IAcademicSemester>;
+
+export type IAcademicSemesterFilters = {
+  searchTerm?: string;
+};

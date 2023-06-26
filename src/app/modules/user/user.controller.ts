@@ -1,25 +1,52 @@
-import { NextFunction, Request, Response } from 'express';
-import { UserService } from './user.service';
-import catchAsync from '../../../shared/catAsync';
+/* eslint-disable no-console */
+import { Request, RequestHandler, Response } from 'express';
 import sendResponse from '../../../shared/sendResponse';
 import httpStatus from 'http-status';
+import { IUser } from './user.interface';
+import { UserService } from './user.service';
+import catchAsync from '../../../shared/catchAsync';
 
-const createUser = catchAsync(
-  async (req: Request, res: Response, next: NextFunction) => {
-    const { user } = req.body;
+const createStudent: RequestHandler = catchAsync(
+  async (req: Request, res: Response) => {
+    const { student, ...userData } = req.body;
+    const result = await UserService.createStudent(student, userData);
 
-    const result = await UserService.createUser(user);
-
-    sendResponse(res, {
+    sendResponse<IUser>(res, {
       statusCode: httpStatus.OK,
       success: true,
       message: 'user created successfully!',
       data: result,
     });
-    next();
   }
 );
+const createFaculty: RequestHandler = catchAsync(
+  async (req: Request, res: Response) => {
+    const { faculty, ...userData } = req.body;
+    const result = await UserService.createFaculty(faculty, userData);
 
+    sendResponse<IUser>(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'user created successfully!',
+      data: result,
+    });
+  }
+);
+const createAdmin: RequestHandler = catchAsync(
+  async (req: Request, res: Response) => {
+    const { admin, ...userData } = req.body;
+    const result = await UserService.createAdmin(admin, userData);
+
+    sendResponse<IUser>(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'Admin created successfully!',
+      data: result,
+    });
+  }
+);
 export const UserController = {
-  createUser,
+  createStudent,
+  createFaculty,
+  createAdmin,
 };
