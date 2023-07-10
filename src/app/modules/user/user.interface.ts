@@ -7,6 +7,7 @@ export type IUser = {
   role: string;
   password: string;
   needsPasswordChange: true | false;
+  passwordChangedAt: Date;
   student?: Types.ObjectId | IStudent;
   faculty?: Types.ObjectId | IStudent;
   admin?: Types.ObjectId | IStudent;
@@ -30,4 +31,4 @@ export type UserModel = {
 //   ): Promise<boolean>;
 // };
 
-// export type UserModel = Model<IUser, Record<string, unknown>, IUserMethods>;
+// export type UserMode = Model<IUser, Record<string, unknown>>;

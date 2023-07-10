@@ -3,7 +3,6 @@ import { Schema, model } from 'mongoose';
 import { IUser, UserModel } from './user.interface';
 import bcrypt from 'bcrypt';
 import config from '../../../config';
-
 // 2. Create a Schema corresponding to the document interface.
 const UserSchema = new Schema<IUser, UserModel>(
   {
@@ -17,6 +16,9 @@ const UserSchema = new Schema<IUser, UserModel>(
     needsPasswordChange: {
       type: Boolean,
       default: true,
+    },
+    passwordChangedAt: {
+      type: Date,
     },
     student: {
       type: Schema.Types.ObjectId,
@@ -62,7 +64,7 @@ UserSchema.statics.isUserExist = async function (
 > | null> {
   return await User.findOne(
     { id },
-    { id: 1, password: 1, role: 1, needsChangePassword: 1 }
+    { id: 1, password: 1, role: 1, needsPasswordChange: 1 }
   );
 };
 
